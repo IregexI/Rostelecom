@@ -1,0 +1,99 @@
+{% extends 'home/homebase.html' %}
+{% load static %}
+{% block title %} {{ user.first_name }} - {{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block sidebar %} {% include 'home/sidebar.html' %} {% endblock %}
+{% block body %}
+<!-- BREADCRUMB -->
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active"> User Profile</li>
+        </ul>
+    </div>
+</div>
+<!-- /BREADCRUMB -->
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="col-md-3">
+            {% include "user/user_panel.html" %}
+        </div>
+        <div class="col-md-9">
+            <div class="billing-details">
+                <div class="section-title">
+                    <h3 class="title">  User profile info:</h3>
+                </div>
+            </div>
+            <table class="shopping-cart-table table">
+                <tr>
+                    <th class="text-left">
+                        <a href="/user/update" class="primary-btn">Update Profile</a>
+                        <a href="/user/password" class="primary-btn">Change Password</a>
+                    </th>
+                    <td><img src="{{ profile.image.url }}" style="border-radius: 45px; height: 200px "></td>
+                </tr>
+                <tr>
+                    <th class="text-left">Name Surname</th>
+                    <td class="text-left">{{ user.first_name }} {{ user.last_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Email</th>
+                    <td class="text-left">{{ profile.user.email }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Phone</th>
+                    <td class="text-left">{{ profile.phone }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Addres</th>
+                    <td class="text-left">{{ profile.address }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">City</th>
+                    <td class="text-left">{{ profile.city }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Country</th>
+                    <td class="text-left">{{ profile.country }}</td>
+                </tr>
+
+            </table>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+</div>
+<!-- /section -->
+{% endblock %}
+{% block foot %} {% include 'home/footer.html' %} {% endblock %}
+
+
+
+
+
+
+<h1> USER PANEL BELOW! </h1>
+<div class="billing-details">
+    <div class="section-title">
+        <h3 class="title">User Panel</h3>
+    </div>
+    <div class="aside">
+        <ul class="list-links">
+            <li><a href="/user">User Profile</a></li>
+            <li><a href="/user/orders">My Orders</a></li>
+            <li><a href="/user/orders_product">My Order Product</a></li>
+            <li><a href="/user/comments">My Comments</a></li>
+            <li><a href="/user/favorites">My Favorites</a></li>
+            <li><a href="/user/products">My Products</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
